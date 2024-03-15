@@ -1,35 +1,27 @@
 from django.contrib import admin
-from .models import MyUser
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from .models import User
+from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.contrib.auth.models import Group
-# Register your models here.
+from django.utils.translation import gettext_lazy as _
 
 
-class UserAdmin(BaseUserAdmin):
-    list_display = ["full_name", "username", "email", "is_admin"]
-    list_filter = ["is_admin"]
-    fieldsets = [
-        (None, {"fields": ["username", "password"]}),
-        ("Personal info", {"fields": ["full_name","email"]}),
-        ("Extra",{"fields":["is_verified","otp"]}),
-        ("Permissions", {"fields": ["is_admin"]}),
-    ]
-    # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
-    # overrides get_fieldsets to use this attribute when creating a user.
-    add_fieldsets = [
-        (
-            None,
-            {
-                "classes": ["wide"],
-                "fields": ["full_name", "username", "email", "password1", "password2"],
-            },
-        ),
-    ]
-    search_fields = ["email"]
-    ordering = ["email"]
-    filter_horizontal = []
-    
-    
-admin.site.register(MyUser,UserAdmin)
+@admin.register(User)
+class UserAdmin(DjangoUserAdmin):
 
-admin.site.unregister(Group)
+    fieldsets = (
+        (None, {'fields': ('email', 'password')}),
+        (_('Personal info'), {'fields': ('name',)}),
+        (_('Permissions'), {'fields': ('is_active', 'is_trusty', 'is_staff',
+                                       'is_superuser', 'groups', 'user_permissions')}),
+        (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+    )
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'password1', 'password2','is_staff'),   
+        }),
+    )
+    list_display = ('id', 'email', 'name', 'is_staff')
+    list_display_links = ('id', 'email', 'name')
+    search_fields = ('email', 'name')
+    ordering = ('id', 'email')

@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-AUTH_USER_MODEL = "accounts.MyUser"
+AUTH_USER_MODEL = "accounts.User"
 
 
 ROOT_URLCONF = 'dreamjournal.urls'
@@ -145,6 +145,7 @@ REST_FRAMEWORK = {
     )
 }
 
+DOMAIN = "http://127.0.0.1:8000"
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=30),
