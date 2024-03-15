@@ -58,7 +58,7 @@ API Reference
         - 404 Not Found: If the user with the provided email is not found.
 
 5. Reset Password
-    - URL: /api/reset-password/<str:uidb64>/<str:token>/
+    - URL: /api/reset-password/:uidb64/:token/
     - Method: POST
     - Description: Resets the user's password using the provided reset link.
     - Request Body:
