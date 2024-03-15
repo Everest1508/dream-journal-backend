@@ -6,12 +6,14 @@ API Reference
     - Method: POST
     - Description: Registers a new user.
     - Request Body:
-        {
+```json
+      {
             "email": "mail@mail.com",
             "name": "Ritesh Mahale",
             "password": "pass"
-        }
-    - Response:
+      }
+```
+- Response:
         - 201 Created: On successful registration.
         - 400 Bad Request: If there are validation errors in the request.
 
