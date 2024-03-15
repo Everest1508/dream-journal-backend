@@ -6,7 +6,8 @@ API Reference
     - Method: POST
     - Description: Registers a new user.
     - Request Body:
-        ```json{
+        ```
+        {
             "email": "mail@mail.com",
             "name": "Ritesh Mahale",
             "password": "pass"
@@ -20,7 +21,8 @@ API Reference
     - Method: POST
     - Description: Verifies the OTP sent to the user's email during registration.
     - Request Body:
-        ```json{
+        ```
+        {
             "email": "mail@mail.com",
             "otp": 1243
         }
@@ -33,7 +35,8 @@ API Reference
     - Method: POST
     - Description: Authenticates a user and generates access tokens.
     - Request Body:
-        ```{
+        ```
+        {
             "email": "mail@mail.com",
             "password": "pass"
         }
@@ -46,7 +49,8 @@ API Reference
     - Method: POST
     - Description: Sends a password reset link to the user's email.
     - Request Body:
-        ```{
+        ```
+        {
             "email": "mail@mail.com"
         }
     - Response:
@@ -58,7 +62,8 @@ API Reference
     - Method: POST
     - Description: Resets the user's password using the provided reset link.
     - Request Body:
-        ```{
+        ```
+        {
             "new_password": "pasword"
         }
     - Response:
@@ -71,7 +76,8 @@ API Reference
     - Description: Retrieves the user's profile information.
     - Authorization: Bearer Token
     - Response:
-        ```{
+        ```
+        {
             "email": "user@mail.com",
             "name": "nsme"
         }
