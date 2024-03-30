@@ -21,3 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('accounts.urls')),
 ]
+
+admin.site.site_header = "DreamJournal Admin"
+admin.site.site_title = "DreamJournal Admin Portal"
+admin.site.index_title = "Welcome to DreamJournal Admin"

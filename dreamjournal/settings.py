@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-$%w1=^d6uj4-eh#i4%3a41(el#y*&i!1j4svf7$*o0enc6zd3=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["apidreamjournal.pythonanywhere.com"]
+ALLOWED_HOSTS = ["apidreamjournal.pythonanywhere.com","127.0.0.1"]
 
 
 # Application definition
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'accounts',
     'rest_framework',
     'rest_framework_simplejwt',
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -174,3 +176,11 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "itsriteshmahale2002@gmail.com"
 EMAIL_HOST_PASSWORD = "jduq xhqz tizb xviq"
+
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:3000",
+    "http://127.0.0.1:9000",
+    "http://localhost:5173",
+]
