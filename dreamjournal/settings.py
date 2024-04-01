@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-$%w1=^d6uj4-eh#i4%3a41(el#y*&i!1j4svf7$*o0enc6zd3=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["apidreamjournal.pythonanywhere.com","127.0.0.1"]
+ALLOWED_HOSTS = ["apidreamjournal.pythonanywhere.com","127.0.0.1","api-dream-journal.onrender.com"]
 
 
 # Application definition
